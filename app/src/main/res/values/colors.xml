@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="green">#5CB338</color>
+    <color name="background">#222831</color>
+    <color name="buttons">#00ADB5</color>
+    <color name="textViews">#EEEEEE</color>
+    <color name="transparent">#00000000</color>
 </resources>

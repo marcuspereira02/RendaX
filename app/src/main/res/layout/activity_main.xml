@@ -5,15 +5,204 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tv_Titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="60dp"
+        android:text="RendaX"
+        android:textSize="45sp"
+        android:textStyle="bold"
+        android:textColor="@color/textViews"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="O valor recebido ao final do investimento será de:"
+        android:textColor="@color/textViews"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Titulo" />
+
+    <TextView
+        android:id="@+id/tv_InvestimentoFinal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.0"
+        android:layout_marginTop="15dp"
+        android:textStyle="bold"
+        android:textSize="50sp"
+        android:textColor="@color/textViews"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Valor dos rendimentos:"
+        android:textColor="@color/textViews"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_InvestimentoFinal" />
+
+    <TextView
+        android:id="@+id/tv_Rendimentos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.0"
+        android:textColor="@color/green"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/TextView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aporte por mês:"
+        android:textColor="@color/textViews"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Rendimentos" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/custom_input"
+        app:boxStrokeColor="@color/transparent"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeWidthFocused="2dp"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextView3" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ti_Mensal"
+            android:textColorHint="@color/textViews"
+            android:textColor="@color/textViews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Insira valor R$"
+            android:inputType="numberDecimal"
+            android:textStyle="bold" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/TextView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quantidade de meses:"
+        android:textColor="@color/textViews"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/custom_input"
+        app:hintEnabled="false"
+        app:boxStrokeColor="@color/transparent"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeWidthFocused="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextView4">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ti_Meses"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Insira quantidade de meses"
+            android:textColorHint="@color/textViews"
+            android:textColor="@color/textViews"
+            android:textStyle="bold"
+            android:inputType="number"
+            android:maxLength="2"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/TextView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Juros %"
+        android:textColor="@color/textViews"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/custom_input"
+        app:boxStrokeColor="@color/transparent"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeWidthFocused="2dp"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextView5">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ti_Juros"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Insira o juros"
+            android:inputType="numberDecimal"
+            android:maxLength="6"
+            android:textColor="@color/textViews"
+            android:textColorHint="@color/textViews"
+            android:textStyle="bold" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_Limpar"
+        android:layout_width="165dp"
+        android:layout_height="48dp"
+        android:background="@drawable/custom_button"
+        android:text="Limpar"
+        android:layout_margin="25dp"
+        android:textColor="@color/buttons"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_Calcular"
+        android:layout_width="165dp"
+        android:layout_height="48dp"
+        android:text="CALCULAR"
+        android:layout_margin="25dp"
+        android:background="@drawable/custom_button2"
+        android:textColor="@color/background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

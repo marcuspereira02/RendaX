@@ -21,41 +21,44 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val resultadoInvestimento = findViewById<TextView>(R.id.tv_final_investment)
-        val rendimentos = findViewById<TextView>(R.id.tv_income)
-        val aporteMensal = findViewById<TextInputEditText>(R.id.tie_monthly)
-        val qtdMeses = findViewById<TextInputEditText>(R.id.tie_months)
-        val juros = findViewById<TextInputEditText>(R.id.tie_fees)
+        val tvInvestmentResult = findViewById<TextView>(R.id.tv_final_investment)
+        val tvIncome = findViewById<TextView>(R.id.tv_income)
+        val tieMonthlyContribution = findViewById<TextInputEditText>(R.id.tie_monthly)
+        val tieNumberOfMonths = findViewById<TextInputEditText>(R.id.tie_months)
+        val tieFees = findViewById<TextInputEditText>(R.id.tie_fees)
 
-        val btnLimpar = findViewById<Button>(R.id.btn_clean)
-        val btnCalcular = findViewById<Button>(R.id.btn_calculate)
+        val btnClean = findViewById<Button>(R.id.btn_clean)
+        val btnCalculate = findViewById<Button>(R.id.btn_calculate)
 
-        btnCalcular.setOnClickListener {
-            val jurosStr: Double = juros.text.toString().toDouble()
-            val qtdMesesStr: Double = qtdMeses.text.toString().toDouble()
-            val aporteMensalStr: Double = aporteMensal.text.toString().toDouble()
+        btnCalculate.setOnClickListener {
+            val feesStr: Double = tieFees.text.toString().toDouble()
+            val numMonthsStr: Double = tieNumberOfMonths.text.toString().toDouble()
+            val monthlyContributionStr: Double = tieMonthlyContribution.text.toString().toDouble()
 
-            val formatador = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
+            val formatter = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
 
-            val juros = jurosStr / 100
-            val crescimentoAporte= aporteMensalStr * ((Math.pow(1 + juros, qtdMesesStr) - 1) / juros) * (1 + juros)
-            val crescimentoInicial = aporteMensalStr * Math.pow(1 + juros, qtdMesesStr)
-            val resultado = crescimentoInicial + crescimentoAporte
-            val rendimento = resultado - (qtdMesesStr * aporteMensalStr)
+            val fees = feesStr / 100
+            val monthlyContribution = monthlyContributionStr * ((Math.pow(
+                1 + fees,
+                numMonthsStr
+            ) - 1) / fees) * (1 + fees)
+            val initialGrowth = monthlyContributionStr * Math.pow(1 + fees, numMonthsStr)
+            val result = initialGrowth + monthlyContribution
+            val performance = result - (numMonthsStr * monthlyContributionStr)
 
-            val rendimentoFormatado = formatador.format(rendimento)
-            val resultadoFormatado = formatador.format(resultado)
+            val performanceFormat = formatter.format(performance)
+            val resultFormat = formatter.format(result)
 
-            rendimentos.text = rendimentoFormatado
-            resultadoInvestimento.text = resultadoFormatado
+            tvIncome.text = performanceFormat
+            tvInvestmentResult.text = resultFormat
         }
 
-        btnLimpar.setOnClickListener {
-            resultadoInvestimento.text = "0.0"
-            rendimentos.text = "0.0"
-            aporteMensal.setText("")
-            qtdMeses.setText("")
-            juros.setText("")
+        btnClean.setOnClickListener {
+            tvInvestmentResult.text = "0.0"
+            tvIncome.text = "0.0"
+            tieMonthlyContribution.setText("")
+            tieNumberOfMonths.setText("")
+            tieFees.setText("")
         }
 
     }

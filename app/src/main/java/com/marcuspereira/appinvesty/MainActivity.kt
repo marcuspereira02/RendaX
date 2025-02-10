@@ -21,14 +21,14 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val resultadoInvestimento = findViewById<TextView>(R.id.tv_InvestimentoFinal)
-        val rendimentos = findViewById<TextView>(R.id.tv_Rendimentos)
-        val aporteMensal = findViewById<TextInputEditText>(R.id.ti_Mensal)
-        val qtdMeses = findViewById<TextInputEditText>(R.id.ti_Meses)
-        val juros = findViewById<TextInputEditText>(R.id.ti_Juros)
+        val resultadoInvestimento = findViewById<TextView>(R.id.tv_final_investment)
+        val rendimentos = findViewById<TextView>(R.id.tv_income)
+        val aporteMensal = findViewById<TextInputEditText>(R.id.tie_monthly)
+        val qtdMeses = findViewById<TextInputEditText>(R.id.tie_months)
+        val juros = findViewById<TextInputEditText>(R.id.tie_fees)
 
-        val btnLimpar = findViewById<Button>(R.id.btn_Limpar)
-        val btnCalcular = findViewById<Button>(R.id.btn_Calcular)
+        val btnLimpar = findViewById<Button>(R.id.btn_clean)
+        val btnCalcular = findViewById<Button>(R.id.btn_calculate)
 
         btnCalcular.setOnClickListener {
             val jurosStr: Double = juros.text.toString().toDouble()
